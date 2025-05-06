@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Pocitac {
     @Override
     public String toString() {
-        return "Pocitac { " + "cpu/" + cpu + ", ram/" + ram + ", pevnyDisk=" + pevnyDisk + " }";
+        return "Pocitac {" + "cpu/" + cpu + "; ram/" + ram + "; pevnyDisk=" + pevnyDisk + "}";
     }
 
     private boolean jeZapnuty = false;
