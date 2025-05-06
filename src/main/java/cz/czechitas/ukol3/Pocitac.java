@@ -12,6 +12,8 @@ public class Pocitac {
     private Procesor cpu; // centralni proces. jednotka
     private Pamet ram;
     private Disk pevnyDisk;
+    private Disk druhyDisk;  //ukol 03 cast 3 - nepovinna
+
 
 
 
