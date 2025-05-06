@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Pamet {
     @Override
     public String toString() { //vypise informace do radku
-        return "Kapacita paměti = " + kapacita + " bajtu.";
+        return "Kapacita pameti = " + kapacita + " bajtu.";
     }
 
 
