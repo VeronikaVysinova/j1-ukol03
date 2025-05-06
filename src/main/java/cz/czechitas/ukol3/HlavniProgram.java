@@ -9,6 +9,8 @@ public class HlavniProgram {
 
         System.out.println("Program spuštěn.");
 
+        // ukol 03 - cast 1
+
         Disk veronikyDisk = new Disk();
 
         veronikyDisk.setKapacita(510_028_367_200L);
@@ -43,6 +45,15 @@ public class HlavniProgram {
         veronikyPocitac.vypniSe();
 
         veronikyPocitac.vypniSe(); //nic se nevypise, ignoruje opakovane vypnuti
+
+
+        // ukol 03 - cast 2
+
+        veronikyPocitac.zapniSe();
+
+        veronikyPocitac.vytvorSouborOVelikosti(500000000L); //pridava soubor o zadane velikosti, pokud se vejde na disk
+
+        veronikyPocitac.vymazSouborOVelikosti(5000000L); // maze soubor o zadane velikosti, pokud je to mozne
 
     }
 }

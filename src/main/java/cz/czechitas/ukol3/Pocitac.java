@@ -8,7 +8,7 @@ public class Pocitac {
         return "Pocitac{" + "cpu=" + cpu + ", ram=" + ram + ", pevnyDisk=" + pevnyDisk + '}';
     }
 
-    private boolean jeZapnuty = false; // nastaveni ze na zacatku je pc vypnuty
+    private boolean jeZapnuty = false;
     private Procesor cpu; // centralni proces. jednotka
     private Pamet ram;
     private Disk pevnyDisk;
@@ -72,5 +72,42 @@ public class Pocitac {
 
     }
 
+    public void vytvorSouborOVelikosti (long velikost) {  //velikost = velikost noveho souboru v bajtech
+        Disk disk = new Disk();
+        long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
+        long maxKapacita = getPevnyDisk().getKapacita(); //ziskam hodnotu kapacity celeho disku
+
+        while (jeZapnuty) {
+            if ((vyuzite + velikost) > maxKapacita) {
+                System.err.println("Soubor se nevejde na disk. Vyuzite misto je: " + vyuzite + " bajtu.");
+            } else {
+                vyuzite = vyuzite + velikost; //zvetsi mi hodnotu vyuziteho mista o novy soubor
+                disk.setVyuziteMisto(vyuzite); //ulozi novou hodnotu vyuziteho mista
+                System.out.println("Nova velikost vyuziteho mista je: " + vyuzite + " bajtu.");
+            }
+            return;
+        }
+
+    }
+
+    public void vymazSouborOVelikosti (long velikost) {
+        Disk disk = new Disk();
+        long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
+
+        while (jeZapnuty) {
+            if ((vyuzite - velikost) < 0) {
+                System.err.println("Velikost vyuziteho mista nesmi klesnout pod 0 bajtu.");
+
+            } else {
+                vyuzite = vyuzite - velikost;
+                disk.setVyuziteMisto(vyuzite);
+                System.out.println("Velikost vyuziteho mista po smazani souboru je: " + vyuzite + " bajtu.");
+            }
+            return;
+
+
+        }
+
+    }
 
 }
