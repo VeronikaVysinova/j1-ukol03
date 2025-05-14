@@ -17,6 +17,7 @@ public class Pamet {
     }
 
     public void setKapacita(long kapacita) {
+
         this.kapacita = kapacita;
     }
 

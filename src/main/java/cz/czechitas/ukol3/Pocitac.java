@@ -12,7 +12,7 @@ public class Pocitac {
     private Procesor cpu; // centralni proces. jednotka
     private Pamet ram;
     private Disk pevnyDisk;
-    private Disk druhyDisk;  //ukol 03 cast 3 - nepovinna
+
 
 
 
@@ -50,7 +50,7 @@ public class Pocitac {
 
     public void zapniSe() {
         if (jeZapnuty()) {
-            System.out.println("Pocitac je jiz zapnuty.");
+            System.err.println("Pocitac je jiz zapnuty.");
 
         } else if (pevnyDisk == null || ram == null || cpu == null) {
             System.out.println("Pocitac nema vse potrebne pro zapnuti.");
@@ -64,9 +64,7 @@ public class Pocitac {
 
     public void vypniSe() {
         if (!jeZapnuty){
-
-        }else{
-            jeZapnuty = false;
+            jeZapnuty = true;
             System.out.println("Pocitac se vypnul.");
 
         }
@@ -75,7 +73,6 @@ public class Pocitac {
     }
 
     public void vytvorSouborOVelikosti (long velikost) {  //velikost = velikost noveho souboru v bajtech
-        Disk disk = new Disk();
         long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
         long maxKapacita = getPevnyDisk().getKapacita(); //ziskam hodnotu kapacity celeho disku
 
@@ -84,7 +81,7 @@ public class Pocitac {
                 System.err.println("Soubor se nevejde na disk. Vyuzite misto je: " + vyuzite + " bajtu.");
             } else {
                 vyuzite = vyuzite + velikost; //zvetsi mi hodnotu vyuziteho mista o novy soubor
-                disk.setVyuziteMisto(vyuzite); //ulozi novou hodnotu vyuziteho mista
+                pevnyDisk.setVyuziteMisto(vyuzite); //ulozi novou hodnotu vyuziteho mista
                 System.out.println("Nova velikost vyuziteho mista je: " + vyuzite + " bajtu.");
             }
             return;
@@ -93,7 +90,7 @@ public class Pocitac {
     }
 
     public void vymazSouborOVelikosti (long velikost) {
-        Disk disk = new Disk();
+
         long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
 
         while (jeZapnuty) {
@@ -102,7 +99,7 @@ public class Pocitac {
 
             } else {
                 vyuzite = vyuzite - velikost;
-                disk.setVyuziteMisto(vyuzite);
+                pevnyDisk.setVyuziteMisto(vyuzite);
                 System.out.println("Velikost vyuziteho mista po smazani souboru je: " + vyuzite + " bajtu.");
             }
             return;

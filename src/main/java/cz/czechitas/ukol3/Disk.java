@@ -18,6 +18,15 @@ public class Disk {
     }
 
     public void setVyuziteMisto(long vyuziteMisto) {
+        if (vyuziteMisto < 0){
+            System.err.println("Vyuzite misto nemuze byt zaporne.");
+            return;
+        }
+        else if (vyuziteMisto > kapacita){
+            System.err.println("Vyuzite misto nemuze byt vetsi nez kapacita disku.");
+            return;
+        }
+
         this.vyuziteMisto = vyuziteMisto;
     }
 
@@ -27,6 +36,7 @@ public class Disk {
     }
 
     public void setKapacita(long kapacita) {
+
         this.kapacita = kapacita;
     }
 }
