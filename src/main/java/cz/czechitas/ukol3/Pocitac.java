@@ -63,12 +63,11 @@ public class Pocitac {
     }
 
     public void vypniSe() {
-        if (!jeZapnuty){
+        if (!jeZapnuty) {
             jeZapnuty = true;
             System.out.println("Pocitac se vypnul.");
 
         }
-
 
     }
 
@@ -76,7 +75,7 @@ public class Pocitac {
         long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
         long maxKapacita = getPevnyDisk().getKapacita(); //ziskam hodnotu kapacity celeho disku
 
-        while (jeZapnuty) {
+        if (jeZapnuty) {
             if ((vyuzite + velikost) > maxKapacita) {
                 System.err.println("Soubor se nevejde na disk. Vyuzite misto je: " + vyuzite + " bajtu.");
             } else {
@@ -93,7 +92,7 @@ public class Pocitac {
 
         long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
 
-        while (jeZapnuty) {
+        if (jeZapnuty) {
             if ((vyuzite - velikost) < 0) {
                 System.err.println("Velikost vyuziteho mista nesmi klesnout pod 0 bajtu.");
 
