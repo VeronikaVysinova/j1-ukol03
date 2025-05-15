@@ -1,5 +1,7 @@
 package cz.czechitas.ukol3;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Pocitac {
@@ -13,7 +15,27 @@ public class Pocitac {
     private Pamet ram;
     private Disk pevnyDisk;
 
+    // ukol navic
+    private final List<Disk> disky = new ArrayList<>();
 
+    public void pridejDisk(String nazev, long kapacita) {
+        if (!jeZapnuty) {
+            disky.add(pevnyDisk);
+            System.out.println("Byl pridan novy disk:" + nazev + " s kapacitou " + kapacita + " bajtu");
+        } else {
+            System.err.println(nazev + " nemuze byt pridan, protoze je pocitac zapnuty.");
+        }
+
+    }
+
+    public void odeberDisk(String nazev) {
+        if (!jeZapnuty) {
+            disky.remove(disky.size() - 1);
+            System.out.println("Byl odstranen " + nazev);
+        } else {
+            System.err.println(nazev + " nemohl byt odstranen, protoze je pocitac zapnuty.");
+        }
+    }
 
 
 

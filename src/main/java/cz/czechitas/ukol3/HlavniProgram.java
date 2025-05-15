@@ -9,8 +9,6 @@ public class HlavniProgram {
 
         System.out.println("Program spuštěn.");
 
-        // ukol 03 - cast 1
-
         Disk veronikyDisk = new Disk();
 
         veronikyDisk.setKapacita(510_028_367_200L);
@@ -44,16 +42,30 @@ public class HlavniProgram {
 
         veronikyPocitac.vypniSe();
 
-        veronikyPocitac.vypniSe(); //nic se nevypise, ignoruje opakovane vypnuti
+        veronikyPocitac.vypniSe(); //nic se nevyúise, ignoruje opakovane vypnuti
 
+        veronikyPocitac.pridejDisk("Disk1",274_877_906_944L);  //pridaji se nove disky
+        veronikyPocitac.pridejDisk("Disk2",549_755_813_888L);
+        veronikyPocitac.pridejDisk("Disk3",1_099_511_627_776L);
 
-        // ukol 03 - cast 2
+        // veronikyPocitac.zapniSe();
+
+        veronikyPocitac.pridejDisk("Disk4",2_199_023_255_552L); //disky se nemohou pridat, protoze je pc vypnuty - error hlaska
+        veronikyPocitac.pridejDisk("Disk5",4_398_046_511_104L);
+
+        veronikyPocitac.vypniSe();
+
+        veronikyPocitac.odeberDisk("Disk1"); //odebere disk podle nazvu
 
         veronikyPocitac.zapniSe();
 
-        veronikyPocitac.vytvorSouborOVelikosti(500000000L); //pridava soubor o zadane velikosti, pokud se vejde na disk
+        veronikyPocitac.odeberDisk("Disk2"); //neodebere disk, protoze je pc zapnuty - error hlaska
 
-        veronikyPocitac.vymazSouborOVelikosti(5000000L); // maze soubor o zadane velikosti, pokud je to mozne
+        // veronikyPocitac.vypniSe();
+        veronikyPocitac.vytvorSouborOVelikosti(500_028_367_200L);
+
+
+
 
     }
 }

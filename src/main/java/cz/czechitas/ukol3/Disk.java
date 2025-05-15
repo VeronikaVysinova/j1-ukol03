@@ -1,7 +1,9 @@
 package cz.czechitas.ukol3;
 
 import java.rmi.ServerError;
+import java.util.ArrayList;
 import java.util.Objects;
+
 
 public class Disk {
     @Override
@@ -11,6 +13,9 @@ public class Disk {
 
     private long kapacita; //v bajtech
     private long vyuziteMisto; //v bajtech
+
+
+
 
     public long getVyuziteMisto() {
 
