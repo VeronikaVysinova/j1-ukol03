@@ -19,7 +19,7 @@ public class Pocitac {
     private final List<Disk> disky = new ArrayList<>();
 
     public void pridejDisk(String nazev, long kapacita) {
-        if (!jeZapnuty) {
+        if (jeZapnuty) {
             disky.add(pevnyDisk);
             System.out.println("Byl pridan novy disk:" + nazev + " s kapacitou " + kapacita + " bajtu");
         } else {
