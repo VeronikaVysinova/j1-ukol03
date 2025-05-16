@@ -19,20 +19,22 @@ public class Pocitac {
     private final List<Disk> disky = new ArrayList<>();
 
 
-    public void pridejDisk() {
+    public void pridejDisk(String nazev, long kapacita, long vyuziteMisto) {
 
         if (!jeZapnuty) {
-            disky.add(new Disk("Disk1",510_028_367_200L,85_899_345_920L));
-            disky.add(new Disk("Disk2",274_877_906_944L,0));
-            disky.add(new Disk("Disk3",549_755_813_888L,0));
-            disky.add(new Disk("Disk4",1_099_511_627_776L,0));
-            disky.add(new Disk("Disk5",12_199_023_255_552L,0));
+            if(disky.size() >= 5){
+                System.err.println("Neni dostatek mista pro pridani dalsiho disku. Max. pocet disku je 5.");
+                return;
+            }
 
-            System.out.println(seznamDisku());
+           disky.add(new Disk(nazev, kapacita, vyuziteMisto));
+           System.out.println(seznamDisku());
 
         } else {
+            jeZapnuty = true;
             System.err.println("Disk nemuze byt pridan, protoze je pocitac zapnuty.");
         }
+
     }
 
     public String seznamDisku(){
@@ -117,8 +119,8 @@ public class Pocitac {
     }
 
     public void vytvorSouborOVelikosti (long velikost) {//velikost = velikost noveho souboru v bajtech
-        long vyuzite =
-        long maxKapacita = pevnyDisk.getKapacita(); //ziskam hodnotu kapacity celeho disku
+       /*long vyuzite =
+        //long maxKapacita = pevnyDisk.getKapacita(); //ziskam hodnotu kapacity celeho disku
         jeZapnuty = true;
 
         for (Disk disk : disky) {
@@ -132,7 +134,7 @@ public class Pocitac {
                 }
                 return;
 
-        }
+        }  */
 
 
     }

@@ -72,11 +72,18 @@ public class HlavniProgram {
 
          */
 
-        veronikyPocitac.pridejDisk();
+        veronikyPocitac.pridejDisk("Disk1",510_028_367_200L,85_899_345_920L);
+        veronikyPocitac.pridejDisk("Disk2",274_877_906_944L,0);
+        veronikyPocitac.pridejDisk("Disk3",549_755_813_888L,0);
+        veronikyPocitac.pridejDisk("Disk4",1_099_511_627_776L,0);
+        veronikyPocitac.pridejDisk("Disk5",12_199_023_255_552L,0);
 
-        veronikyPocitac.odeberDisk("Disk1"); //odebere disk podle nazvu
 
-        veronikyPocitac.vytvorSouborOVelikosti(520_028_367_200L);
+        veronikyPocitac.pridejDisk("Disk6",199_023_255_552L,0);
+
+
+
+        //veronikyPocitac.vytvorSouborOVelikosti(520_028_367_200L);
 
 
     }
