@@ -1,5 +1,7 @@
 package cz.czechitas.ukol3;
 
+import java.util.List;
+
 /**
  * Spouštěcí třída celého programu
  */
@@ -11,12 +13,12 @@ public class HlavniProgram {
 
         // ukol 03 - cast 1
 
-        Disk veronikyDisk = new Disk();
+        Disk veronikyDisk = new Disk("Disk1",510_028_367_200L,85_899_345_920L);
 
-        veronikyDisk.setKapacita(510_028_367_200L);
-        veronikyDisk.setVyuziteMisto(85_899_345_920L);
+      //  veronikyDisk.setKapacita(510_028_367_200L);
+      //  veronikyDisk.setVyuziteMisto(85_899_345_920L);
 
-    //    System.out.println(veronikyDisk);
+         System.out.println(veronikyDisk);
 
         Pamet veronikyPamet = new Pamet();
 
@@ -29,7 +31,7 @@ public class HlavniProgram {
         veronikyProcesor.setVyrobce("HP");
         veronikyProcesor.setRychlost(2_800_000_000L);
 
-      //  System.out.println(veronikyProcesor);
+        System.out.println(veronikyProcesor);
 
         Pocitac veronikyPocitac = new Pocitac();
 
@@ -49,7 +51,7 @@ public class HlavniProgram {
 
         veronikyPocitac.vypniSe();
 
-        veronikyPocitac.pridejDisk("Disk1",274_877_906_944L);  //pridaji se nove disky
+      /*  veronikyPocitac.pridejDisk("Disk1",274_877_906_944L);  //pridaji se nove disky
         veronikyPocitac.pridejDisk("Disk2",549_755_813_888L);
         veronikyPocitac.pridejDisk("Disk3",1_099_511_627_776L);
 
@@ -60,7 +62,7 @@ public class HlavniProgram {
 
         veronikyPocitac.vypniSe();
 
-        veronikyPocitac.odeberDisk("Disk1"); //odebere disk podle nazvu
+
 
         veronikyPocitac.zapniSe();
 
@@ -68,9 +70,13 @@ public class HlavniProgram {
 
         veronikyPocitac.vypniSe();
 
+         */
+
+        veronikyPocitac.pridejDisk();
+
+        veronikyPocitac.odeberDisk("Disk1"); //odebere disk podle nazvu
+
         veronikyPocitac.vytvorSouborOVelikosti(520_028_367_200L);
-
-
 
 
     }
