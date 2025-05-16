@@ -18,15 +18,22 @@ public class Pocitac {
     // ukol navic
     private final List<Disk> disky = new ArrayList<>();
 
+
     public void pridejDisk(String nazev, long kapacita) {
+
+
         if (!jeZapnuty) {
-            disky.add(pevnyDisk);
+
+            disky.add(new Disk());
             System.out.println("Byl pridan novy disk:" + nazev + " s kapacitou " + kapacita + " bajtu");
         } else {
             System.err.println(nazev + " nemuze byt pridan, protoze je pocitac zapnuty.");
         }
 
+
+
     }
+
 
     public void odeberDisk(String nazev) {
         if (!jeZapnuty) {
@@ -93,20 +100,24 @@ public class Pocitac {
 
     }
 
-    public void vytvorSouborOVelikosti (long velikost) {  //velikost = velikost noveho souboru v bajtech
+    public void vytvorSouborOVelikosti (long velikost) {//velikost = velikost noveho souboru v bajtech
         long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
         long maxKapacita = getPevnyDisk().getKapacita(); //ziskam hodnotu kapacity celeho disku
+        jeZapnuty = true;
 
-        while (!jeZapnuty) {
+        for (Disk disk : disky) {
+
             if ((vyuzite + velikost) > maxKapacita) {
-                System.err.println("Soubor se nevejde na disk. Vyuzite misto je: " + vyuzite + " bajtu.");
-            } else {
-                vyuzite = vyuzite + velikost; //zvetsi mi hodnotu vyuziteho mista o novy soubor
-                pevnyDisk.setVyuziteMisto(vyuzite); //ulozi novou hodnotu vyuziteho mista
-                System.out.println("Nova velikost vyuziteho mista je: " + vyuzite + " bajtu.");
-            }
-            return;
+                    System.err.println("Soubor se nevejde na disk. Vyuzite misto je: " + vyuzite + " bajtu.");
+                } else {
+                long noveVyuzite = vyuzite + velikost;//zvetsi mi hodnotu vyuziteho mista o novy soubor
+                    pevnyDisk.setVyuziteMisto(noveVyuzite); //ulozi novou hodnotu vyuziteho mista
+                    System.out.println("Nova velikost vyuziteho mista je: " + vyuzite + " bajtu.");
+                }
+                return;
+
         }
+
 
     }
 
