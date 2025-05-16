@@ -19,7 +19,7 @@ public class Pocitac {
     private final List<Disk> disky = new ArrayList<>();
 
     public void pridejDisk(String nazev, long kapacita) {
-        if (jeZapnuty) {
+        if (!jeZapnuty) {
             disky.add(pevnyDisk);
             System.out.println("Byl pridan novy disk:" + nazev + " s kapacitou " + kapacita + " bajtu");
         } else {
@@ -65,7 +65,6 @@ public class Pocitac {
     }
 
 
-
     public boolean jeZapnuty() {  // bez get a set
         return jeZapnuty;
     }
@@ -85,8 +84,8 @@ public class Pocitac {
     }
 
     public void vypniSe() {
-        if (!jeZapnuty){
-            jeZapnuty = true;
+        if (jeZapnuty()){
+            jeZapnuty = false;
             System.out.println("Pocitac se vypnul.");
 
         }
@@ -98,7 +97,7 @@ public class Pocitac {
         long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
         long maxKapacita = getPevnyDisk().getKapacita(); //ziskam hodnotu kapacity celeho disku
 
-        while (jeZapnuty) {
+        while (!jeZapnuty) {
             if ((vyuzite + velikost) > maxKapacita) {
                 System.err.println("Soubor se nevejde na disk. Vyuzite misto je: " + vyuzite + " bajtu.");
             } else {
@@ -115,7 +114,8 @@ public class Pocitac {
 
         long vyuzite = getPevnyDisk().getVyuziteMisto(); //ziskam hodnotu jiz vyuziteho mista
 
-        while (jeZapnuty) {
+        while (!jeZapnuty) {
+
             if ((vyuzite - velikost) < 0) {
                 System.err.println("Velikost vyuziteho mista nesmi klesnout pod 0 bajtu.");
 

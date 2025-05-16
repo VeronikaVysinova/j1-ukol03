@@ -9,25 +9,27 @@ public class HlavniProgram {
 
         System.out.println("Program spuštěn.");
 
+        // ukol 03 - cast 1
+
         Disk veronikyDisk = new Disk();
 
         veronikyDisk.setKapacita(510_028_367_200L);
         veronikyDisk.setVyuziteMisto(85_899_345_920L);
 
-        System.out.println(veronikyDisk);
+    //    System.out.println(veronikyDisk);
 
         Pamet veronikyPamet = new Pamet();
 
         veronikyPamet.setKapacita(17_179_869_184L);
 
-        System.out.println(veronikyPamet);
+      //  System.out.println(veronikyPamet);
 
         Procesor veronikyProcesor = new Procesor();
 
         veronikyProcesor.setVyrobce("HP");
         veronikyProcesor.setRychlost(2_800_000_000L);
 
-        System.out.println(veronikyProcesor);
+      //  System.out.println(veronikyProcesor);
 
         Pocitac veronikyPocitac = new Pocitac();
 
@@ -35,20 +37,23 @@ public class HlavniProgram {
         veronikyPocitac.setRam(veronikyPamet);
         veronikyPocitac.setPevnyDisk(veronikyDisk);
 
-        System.out.println(veronikyPocitac);
+      //  System.out.println(veronikyPocitac);
 
         veronikyPocitac.zapniSe();
         veronikyPocitac.zapniSe();  //vypise chybu protoze je pocitac jiz zapnuty
 
         veronikyPocitac.vypniSe();
 
-        veronikyPocitac.vypniSe(); //nic se nevyúise, ignoruje opakovane vypnuti
+        veronikyPocitac.vypniSe();
+        veronikyPocitac.zapniSe();
+
+        veronikyPocitac.vypniSe();
 
         veronikyPocitac.pridejDisk("Disk1",274_877_906_944L);  //pridaji se nove disky
         veronikyPocitac.pridejDisk("Disk2",549_755_813_888L);
         veronikyPocitac.pridejDisk("Disk3",1_099_511_627_776L);
 
-        // veronikyPocitac.zapniSe();
+        veronikyPocitac.zapniSe();
 
         veronikyPocitac.pridejDisk("Disk4",2_199_023_255_552L); //disky se nemohou pridat, protoze je pc vypnuty - error hlaska
         veronikyPocitac.pridejDisk("Disk5",4_398_046_511_104L);
@@ -61,8 +66,9 @@ public class HlavniProgram {
 
         veronikyPocitac.odeberDisk("Disk2"); //neodebere disk, protoze je pc zapnuty - error hlaska
 
-        // veronikyPocitac.vypniSe();
-        veronikyPocitac.vytvorSouborOVelikosti(500_028_367_200L);
+        veronikyPocitac.vypniSe();
+
+        veronikyPocitac.vytvorSouborOVelikosti(520_028_367_200L);
 
 
 
