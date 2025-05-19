@@ -11,6 +11,22 @@ public class Disk {
 
     private long kapacita; //v bajtech
     private long vyuziteMisto; //v bajtech
+    private String nazev;
+
+    public Disk(String nazev, long kapacita, long vyuziteMisto) {
+        this.nazev = nazev;
+        this.kapacita = kapacita;
+        this.vyuziteMisto = vyuziteMisto;
+    }
+
+
+    public String getNazev() {
+        return nazev;
+    }
+
+    public void setNazev(String nazev) {
+        this.nazev = nazev;
+    }
 
     public long getVyuziteMisto() {
 
